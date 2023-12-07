@@ -1,0 +1,24 @@
+<!-- app-signin-component.html -->
+<div class="login-container">
+ <!-- login.component.html -->
+<div>
+    <label for="useremail">Email:</label>
+    <input type="email" id="useremail" [(ngModel)]="useremail" required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password" required>
+  
+    <button (click)="signIn()">Login</button>
+  </div>
+  
+    <div class="row mt-2">
+        <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with Google
+                </div>
+  
+    <!-- Use routerLink for navigation -->
+    <a [routerLink]="['/signup']" class="signup-link">No account? Sign up here</a>
+  </div>
+  

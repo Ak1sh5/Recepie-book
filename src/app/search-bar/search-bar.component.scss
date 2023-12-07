@@ -1,0 +1,21 @@
+/* search-bar.component.scss */
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #search-input {
+    margin-right: 5px; /* Adjust the spacing between input and button */
+    padding: 8px; /* Add some padding for better visual appearance */
+    width: 300px;
+  }
+  
+  #search-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Adjust padding for better button size */
+    cursor: pointer;
+    border-radius: 4px; /* Add some border-radius for a rounded appearance */
+  }

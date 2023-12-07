@@ -1,0 +1,38 @@
+
+.excersise-info{
+ 
+    margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 15px;
+      row-gap: 15px;
+  }
+  
+  .card {
+    background-color: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card p {
+      margin: 0; /* Remove default margins for paragraphs inside the card */
+    }
+  .thumbnail-row {
+      margin-bottom: 12px;
+    }
+  
+    .thumbnail {
+      width: 100%;
+    }
+    p {
+      font-family: Roboto, Arial;
+      font-size: 20px;
+    }
+    p.body-part{
+      margin-bottom: 4px;
+    }
+    p.equipment{
+      margin-bottom: 4px;
+    }
