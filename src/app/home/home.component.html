@@ -2,6 +2,8 @@
 <!-- your-component.component.html -->
 
 <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
-<app-card [searchResults]="searchResults"></app-card>
+<!-- home.component.html -->
+<app-card *ngIf="searchResults" [recipeData]="searchResults"></app-card>
+
 <button (click)="logout()">Log Out</button>
 <p>home works!</p>

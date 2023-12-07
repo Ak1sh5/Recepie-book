@@ -1,11 +1,11 @@
 <!-- card.component.html -->
 
 <div class="recipe-info">
-  <div *ngFor="let recipe of searchResults" class="card">
+  <div *ngFor="let recipe of imageData" class="card">
     <div class="thumbnail-row">
       <img class="thumbnail" [src]="recipe.Image" alt="{{ recipe.title }}">
     </div>
-    <p class="food-name">Food Name: {{ recipe.title }}</p>
+    <p class="food-name">Food Name: {{ recipe.image }}</p>
     <p class="instructions">Servings: {{ recipe.servings }}</p>
     <p class="ingredients">Ingredients:{{recipe.ingredients}}</p>
    

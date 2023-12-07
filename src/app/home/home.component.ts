@@ -17,21 +17,23 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent {
   searchResults: any[] | undefined;
-
-
-  onSearch(query: string): void {
-    this.apiService.search(query).subscribe(results => {
-      this.searchResults = results;
-      console.log(results);
-    });
-  }
-
-
-    constructor(private datafetch: DataService,
+  imageResult:any[] | undefined ;
+  
+  constructor(private datafetch: DataService,
     private http: HttpClient,  private dataService: ApiService,
     private authService:AuthenticationService,
     private apiService: ApiService,
     private router:Router,private firestore: AngularFirestore,private afAuth: AngularFireAuth) {};
+
+
+  onSearch(query: string): void {
+    this.apiService.searchRecipe(query).subscribe(results => {
+      this.searchResults = results;
+      console.log(results);
+  })
+}
+
+
     
       
   logout(){
@@ -45,4 +47,5 @@ export class HomeComponent {
       console.error('Authentication failed:', error);
     });
    }
-}
+  }
+
