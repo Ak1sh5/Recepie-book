@@ -8,25 +8,24 @@ import { DataService } from '../home/dataSercice';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
+
+
+
+  
+
 export class SearchBarComponent {
   searchForm!: FormGroup;
-  @Output() search = new EventEmitter<string>();
+  @Output() searchEvent = new EventEmitter<string>();
 
-  constructor(private fb: FormBuilder,private dataService: DataService) {
-    this.searchForm = this.fb.group({
-      recepie: ['']
+  constructor(private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      query: ['']
     });
   }
 
-  ngOnInit() {
-    this.searchForm = this.fb.group({
-      recepie: [''] // Initialize with an empty string or any default value
-    });
+  onSearch(): void {
+    const query = this.searchForm.get('query')?.value;
+    this.searchEvent.emit(query);
   }
-
-  onSearch(query: string): void {
-    this.dataService.searchRecipes(query);
-    this.search.emit(query);
-  }
-  
 }
+  

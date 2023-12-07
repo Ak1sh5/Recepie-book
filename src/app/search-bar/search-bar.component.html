@@ -1,5 +1,5 @@
 <!-- search.component.html -->
-<form [formGroup]="searchForm" (ngSubmit)="onSearch(searchForm.get('recepie')?.value)">
-  <input type="text" id="search-input" formControlName="recepie" placeholder="Enter the recipe/dish name">
-  <button id="search-button" type="submit">Search</button>
+<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+  <input type="text" formControlName="query" placeholder="Enter your search query">
+  <button type="submit">Search</button>
 </form>

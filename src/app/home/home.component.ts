@@ -16,20 +16,23 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  searchData: any[] = [];
-  constructor(private datafetch: DataService,
+  searchResults: any[] | undefined;
+
+
+  onSearch(query: string): void {
+    this.apiService.search(query).subscribe(results => {
+      this.searchResults = results;
+      console.log(results);
+    });
+  }
+
+
+    constructor(private datafetch: DataService,
     private http: HttpClient,  private dataService: ApiService,
-    private authService:AuthenticationService,private router:Router,private firestore: AngularFirestore,private afAuth: AngularFireAuth) {
-
-      this.dataService.data$.subscribe(data => {
-        this.searchData = data;
-      });
-    }
-
-    onSearch(query: string): void {
-      // Handle the search event if needed
-      console.log('Search query:', query);
-    }  
+    private authService:AuthenticationService,
+    private apiService: ApiService,
+    private router:Router,private firestore: AngularFirestore,private afAuth: AngularFireAuth) {};
+    
       
   logout(){
     this.authService.signOut()

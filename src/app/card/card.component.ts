@@ -1,25 +1,13 @@
 // card.component.ts
 
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
-  data: any;
+export class CardComponent  {
 
-  constructor(private dataService: ApiService) {}
-
-  ngOnInit() {
-    this.dataService.data$.subscribe(data => {
-      this.data = data;
-    });
-  }
-
-  getObjectValues(obj: any): any[] {
-    return Object.values(obj);
-  }
+  @Input() searchResults: any[] | undefined;
 }

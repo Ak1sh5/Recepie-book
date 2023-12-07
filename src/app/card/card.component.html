@@ -1,17 +1,15 @@
 <!-- card.component.html -->
 
-<div class="recipe-info" *ngIf="data.length > 0">
-  <div *ngFor="let recipe of data" class="card">
+<div class="recipe-info">
+  <div *ngFor="let recipe of searchResults" class="card">
     <div class="thumbnail-row">
-      <img class="thumbnail" [src]="recipe.Image" alt="{{ recipe.Title }}">
+      <img class="thumbnail" [src]="recipe.Image" alt="{{ recipe.title }}">
     </div>
-    <p class="body-part">Food Name: {{ recipe.Title }}</p>
-    <p class="ingredients">Ingredients:</p>
-    <ul>
-      <li *ngFor="let ingredient of getObjectValues(recipe.Ingredients)">
-        {{ ingredient }}
-      </li>
-    </ul>
-    <p class="instructions">Instructions: {{ recipe.Instructions }}</p>
+    <p class="food-name">Food Name: {{ recipe.title }}</p>
+    <p class="instructions">Servings: {{ recipe.servings }}</p>
+    <p class="ingredients">Ingredients:{{recipe.ingredients}}</p>
+   
+    <p class="instructions">Instructions: {{ recipe.instructions }}</p>
+    
   </div>
 </div>
