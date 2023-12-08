@@ -1,0 +1,6 @@
+<div *ngFor="let task of tasks,let i=index" class="task">
+    <span class="notes">{{i+1}} {{ task.title }}</span>
+    <button class ="delete-button"
+  (click)="deleteTask(task.id)">Delete</button>
+  </div>
+  

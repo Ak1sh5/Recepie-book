@@ -4,28 +4,40 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SigninComponentComponent } from './signin/signin.component';
-import { AboutComponent } from './about/about.component';
-import { SavedRecepiesComponent } from './saved-recepies/saved-recepies.component';
+import { AboutComponent } from './components/about/about.component';
+import { SavedRecepiesComponent } from './components/saved-recepies/saved-recepies.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
 import { RouterModule } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { CommonModule } from '@angular/common';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { CardComponent } from './card/card.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { SigninComponentComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
+
     AppComponent,
-    SigninComponentComponent,
-    SignupComponent,
     AboutComponent,
-    HomeComponent,
     SavedRecepiesComponent,
     SearchBarComponent,
-    CardComponent
+    CardComponent,
+    HomeComponent,
+    SignupComponent,
+    SigninComponentComponent,
+    TodoFormComponent,
+    NotesComponent,
+    TodoListComponent,
+    
+
+
+    
+   
   ],
   imports: [
     FormsModule,

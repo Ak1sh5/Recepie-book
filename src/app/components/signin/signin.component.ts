@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../firebase.service';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {  AuthenticationService } from '../auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
+
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -14,10 +12,10 @@ export class SigninComponentComponent {
   useremail: string = '';
   password: string = '';
 
-  constructor(private authService: AuthenticationService, private router: Router,private firebaseService:FirebaseService) {}
+  constructor(private router: Router,private firebaseService:FirebaseService) {}
 
   signIn(): void {
-    this.authService.signIn(this.useremail, this.password)
+    this.firebaseService.signIn(this.useremail, this.password)
       .then(() => {
         // Authentication successful, navigate to the desired page
         this.router.navigate(['/home']);

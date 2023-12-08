@@ -1,7 +1,7 @@
 // search-bar.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { DataService } from '../home/dataSercice';
+
 
 @Component({
   selector: 'app-search-bar',

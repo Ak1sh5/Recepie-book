@@ -1,0 +1,19 @@
+
+<!-- your-component.component.html -->
+<nav class="nav-bar">
+    <app-search-bar class="search-bar" (searchEvent)="onSearch($event)"></app-search-bar>
+    
+<button class="logout-button"(click)="logout()">Log Out</button>
+<button class="add-notes-button"(click)="addNotes()">Add notes</button>
+
+</nav>
+<div class="into-text">
+    <p >Hi welcome , search through recepies or find your favourite recepies ont he top left corner</p>
+
+<!-- home.component.html -->
+<app-card *ngIf="searchResults" [recipeData]="searchResults"></app-card>
+
+
+</div>
+
+

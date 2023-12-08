@@ -1,7 +1,8 @@
 // card.component.ts
 
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-card',
@@ -17,16 +18,8 @@ import { ApiService } from '../api.service';
     ngOnInit() {
       // Assuming you have the recipe title in the recipeData object
       const recipeTitle = this.recipeData?.title;
-  
+      console.log(recipeTitle);
       // Perform image search using the recipe title
-      this.apiService.searchImage(recipeTitle).subscribe(
-        imageResult => {
-          this.imageData = imageResult;
-          console.log(this.imageData);
-        },
-        error => {
-          console.error(error);
-        }
-      );
+     
     }
   }

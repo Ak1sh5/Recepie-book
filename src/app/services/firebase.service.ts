@@ -23,9 +23,25 @@ export class FirebaseService {
       confirmPassword: ['', [Validators.required]],
     });
     
-    signInWithEmailAndPassword(email: string, password: string): Promise<any> {
-      return this.afAuth.signInWithEmailAndPassword(email, password);
+
+    signIn(email: string, password: string): Promise<any> {
+      return this.afAuth.signInWithEmailAndPassword(email, password).then(res=>{
+      this.router.navigate(['/home']);
+        console.log("success");
+      }, err => {
+        alert(err.message);
+      });
     }
+
+    googleSignIn() {
+      return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res => {
+        this.router.navigate(['/home']);
+        console.log("success");
+      }, err => {
+        alert(err.message);
+      });
+    }
+
 
     async registerUser(): Promise<void> {
       try {
@@ -51,16 +67,13 @@ export class FirebaseService {
       }
     }
 
-    
+    isLoggedIn(): boolean {
+      return this.afAuth.currentUser !== null;
+    }
 
 
-googleSignIn() {
-  return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res => {
-    // Redirect to the '/home' route within the Angular application
-    this.router.navigate(['/home']);
-    console.log("success");
-  }, err => {
-    alert(err.message);
-  });
-}
+    logOut() {
+      return this.fireauth.signOut()
+    }
+
 }
