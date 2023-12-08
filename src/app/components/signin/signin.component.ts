@@ -16,14 +16,6 @@ export class SigninComponentComponent {
 
   signIn(): void {
     this.firebaseService.signIn(this.useremail, this.password)
-      .then(() => {
-        // Authentication successful, navigate to the desired page
-        this.router.navigate(['/home']);
-      })
-      .catch(error => {
-        // Handle authentication error (show an error message, etc.)
-        console.error('Authentication failed:', error);
-      });
   }
   signInWithGoogle() {
     this.firebaseService.googleSignIn();

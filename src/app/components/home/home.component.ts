@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { HttpClient} from '@angular/common/http';
 import { ApiService } from 'src/app/services/api.service';
-import { DataService } from 'src/app/services/dataSercice';
 import { FirebaseService } from '../../services/firebase.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,10 +15,12 @@ export class HomeComponent {
   searchResults: any[] | undefined;
   imageResult:any[] | undefined ;
   
-  constructor(private datafetch: DataService,
+  constructor(
     private apiService: ApiService,
     private firebaseService:FirebaseService,
-    private router:Router,private firestore: AngularFirestore,private afAuth: AngularFireAuth) {};
+    private router:Router,
+    private location: Location // Inject Location
+    ) {};
 
 
   onSearch(query: string): void {
@@ -41,6 +39,7 @@ addNotes() {
 logout() {
   this.firebaseService.logOut()
     .then(() => {
+      this.location.replaceState('/about');
       this.router.navigate(['/about']);
     })
     .catch((error: any) => {
